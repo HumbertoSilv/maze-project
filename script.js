@@ -35,7 +35,7 @@ const creatMap = () => {
 
       const div = document.createElement('div');
         if (row[j] === 'W') {
-          div.style.backgroundColor = 'red';
+          div.classList.add('block');
         }
       div.classList.add('cell');
       div.id = `cell-${i}-${j}`;
@@ -54,65 +54,75 @@ document.getElementById('box').appendChild(domMap);
 /*************** DIV PLAYER ************/ 
 
 let divPlayer = document.createElement('div');
-    divPlayer.innerText = "P";
+    divPlayer.classList.add('divPlayer');
 
 /******** PLAYER POSITION **************/
 
 let currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
     currentPosition.appendChild(divPlayer);
 
-
 document.addEventListener('keydown', (event) => {
   const keyName = event.key;
 
+    if (playerPosition.y < 0) {
+      playerPosition.y = 0;
+    }
 
-    if ( (keyName == 'ArrowDown' || keyName == 's')) {
+    if (keyName == 'ArrowDown' || keyName == 's') {
       playerPosition.x += 1;
-      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+      if (map[playerPosition.x][playerPosition.y] === 'W') {
+        playerPosition.x -= 1;
         currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
         currentPosition.appendChild(divPlayer);  
       }
     }
     if (keyName == 'ArrowUp' || keyName == 'w') {
       playerPosition.x -= 1;
-      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+      if (map[playerPosition.x][playerPosition.y] === 'W') {
+        playerPosition.x += 1;
         currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
         currentPosition.appendChild(divPlayer);  
       }
     }
     if (keyName == 'ArrowRight' || keyName == 'd') {
       playerPosition.y += 1;
-      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+      if (map[playerPosition.x][playerPosition.y] === 'W') {
+        playerPosition.y -= 1;
         currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
         currentPosition.appendChild(divPlayer);  
       }
     }
     if (keyName == 'ArrowLeft' || keyName == 'a') {
       playerPosition.y -= 1;
-      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+      if (map[playerPosition.x][playerPosition.y] === 'W') {
+        playerPosition.y += 1;
         currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
         currentPosition.appendChild(divPlayer);  
       }
     }  
 
-    //currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
-    //currentPosition.appendChild(divPlayer);
-    console.log(map[playerPosition.x][playerPosition.y]);
-  
+    currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
+    currentPosition.appendChild(divPlayer);
 
+    hasVictory()
 });
 
+/********* VICTORY *********/ 
 
-/*function player() {
-    let test = document.getElementById('l' + playerPosition.x).childNodes;
-        test[playerPosition.y].innerText = "s";
-        test[playerPosition.y].style.backgroundColor = 'yellow';
-    
-    let start = document.getElementById('l' + playerPosition.x).childNodes;
-    let divPlayer = document.createElement('div');
-    divPlayer.innerText = 's';
-    start[playerPosition.y].appendChild(divPlayer);
-    console.log(playerPosition)
-
+function hasVictory() {
+  if (playerPosition.x === 8 && playerPosition.y === 20) {
+    document.getElementById('msg').classList.add('victory');
+  }
 }
-*/
+/********** BUTTON RESET ****************/
+
+const reloadPage = document.getElementById('btnReset');
+reloadPage.addEventListener('click', () => location.reload());
+
+/********* BUTTON SONG ******************/
+
+const btnSongs = document.getElementById('btnSongs');
+btnSongs.addEventListener('click', () => {
+  const song01 = document.getElementById('song01');
+  song01.muted = !song01.muted;
+})

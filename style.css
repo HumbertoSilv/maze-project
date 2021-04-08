@@ -1,20 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+
 html,body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    height: 95vh;
     width: 100%;
+    background-image: url('./img/maze-background.jpg');
+    background-size: cover;
 }
 .box {
-    border: 1px solid #000;
-    width: 90%;
-    margin: 30px auto;
+    width: 80%;
+    margin:20px auto;
 }
-    .row {
-        border: 1px solid #000;
-        height: 40px;
-        display: flex;
+    .box>div {
+        width: 70vw;
+        margin: 0 auto;
     }
-        .cell {
-            border: 1px solid #000;
-            width: 5%;
+        .row {
+            height: 40px;
+            display: flex;
         }
+            .cell {
+                width: 7%;
+                border: 1px solid rgba(19, 19, 32, 0);
+            }
+.block {
+    background-color: #ffffffb6;
+    border: 1px solid purple;
+    box-shadow: 0 0 0.6rem #fffdff, 0 0 0.5rem #ff65bd
+}
+
+.divPlayer {
+    background-color: #ffd8d8;;
+    width: 60%;
+    height: 70%;
+    border-radius: 100%;
+    box-shadow: .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, 
+                .1vw 0vw   0vw #f25757, .2vw 0vw   0vw #f25757, .3vw 0vw   0vw #f25757,
+                .1vw 0vw  .1vw #f25757, .2vw 0vw  .1vw #f25757, .2vw 0vw  .1vw #f25757,
+                .1vw 0vw   2vw #8657f2, .2vw 0vw   2vw #8657f2, .2vw 0vw   1vw #8657f2, 
+                .1vw 0vw   1vw #7d1aee, .2vw 0vw   1vw #7d1aee, .2vw 0vw   1vw #7d1aee, 
+                .1vw 0vw   2vw #5515eb, .2vw 0vw   2vw #5515eb, .2vw 0vw   1vw #5515eb,
+                .1vw 0vw   2vw #3e04ac, .2vw 0vw   2vw #3e04ac, .2vw 0vw   1vw #3e04ac;
+
+}
+
+.hidden {
+    display: none;
+}
+
+.victory {
+    position: absolute;
+    z-index: 1;
+    width: 60vw;
+    height: 70vh;
+    border-radius: 15px;
+    background-color: rgba(66, 23, 116, 0.705);
+    top: 90px;
+    left: 20vw;
+    border: none;
+    box-shadow: #cc81ccd2 0px 2px 30px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1 {
+    width: 80%;
+    margin: 40px auto;
+    font-family: 'Train One', cursive;
+    color: #fff;
+    font-size: 4.3em;
+    text-align: center;
+    text-shadow: 0 0 0.6rem #fffdff, 0 0 0.5rem #ff65bd
+}
+
+.btnReset {
+    width: 30%;
+    height: 10%;
+    border-radius: 10%;
+    border: none;
+    color: rgb(136, 46, 253);
+    box-shadow: 0 0 0.6rem #fffdff, 0 0 0.5rem #ff65bd;
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+#btnSongs {
+    width: 50px;
+    height: 25px;
+    position: absolute;
+    right: 2%;
+    color:rgb(136, 46, 253);
+
+}
