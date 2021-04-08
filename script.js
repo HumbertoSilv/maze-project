@@ -16,6 +16,8 @@ let map = [
     "WWWWWWWWWWWWWWWWWWWWW",
 ];
 
+let playerPosition = {x:9,y:0 };
+
 /*********** CREATE MAP***********/ 
 
 const creatMap = () => {
@@ -33,7 +35,7 @@ const creatMap = () => {
 
       const div = document.createElement('div');
         if (row[j] === 'W') {
-          div.style.backgroundColor = '#000';
+          div.style.backgroundColor = 'red';
         }
       div.classList.add('cell');
       div.id = `cell-${i}-${j}`;
@@ -51,35 +53,52 @@ document.getElementById('box').appendChild(domMap);
 
 /*************** DIV PLAYER ************/ 
 
-let playerPosition = {x:9,y:0 };
-
 let divPlayer = document.createElement('div');
     divPlayer.innerText = "P";
 
+/******** PLAYER POSITION **************/
 
+let currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
+    currentPosition.appendChild(divPlayer);
 
 
 document.addEventListener('keydown', (event) => {
   const keyName = event.key;
 
-  let currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
-      currentPosition.appendChild(divPlayer);
 
+    if ( (keyName == 'ArrowDown' || keyName == 's')) {
+      playerPosition.x += 1;
+      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+        currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
+        currentPosition.appendChild(divPlayer);  
+      }
+    }
+    if (keyName == 'ArrowUp' || keyName == 'w') {
+      playerPosition.x -= 1;
+      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+        currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
+        currentPosition.appendChild(divPlayer);  
+      }
+    }
+    if (keyName == 'ArrowRight' || keyName == 'd') {
+      playerPosition.y += 1;
+      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+        currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
+        currentPosition.appendChild(divPlayer);  
+      }
+    }
+    if (keyName == 'ArrowLeft' || keyName == 'a') {
+      playerPosition.y -= 1;
+      if ((map[playerPosition.x][playerPosition.y] !== 'W') ) {
+        currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
+        currentPosition.appendChild(divPlayer);  
+      }
+    }  
 
-  if (keyName == 'ArrowDown' || keyName == 's') {
-    playerPosition.x += 1;
-  }
-  if (keyName == 'ArrowUp' || keyName == 'w') {
-    playerPosition.x -= 1;
-  }
-  if (keyName == 'ArrowRight' || keyName == 'd') {
-    playerPosition.y += 1;
-  }
-  if (keyName == 'ArrowLeft' || keyName == 'a') {
-    playerPosition.y -= 1;
-  }
-
-console.log(currentPosition)
+    //currentPosition = document.getElementById(`cell-${playerPosition.x}-${playerPosition.y}`);
+    //currentPosition.appendChild(divPlayer);
+    console.log(map[playerPosition.x][playerPosition.y]);
+  
 
 });
 
