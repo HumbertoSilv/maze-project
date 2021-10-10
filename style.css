@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Train+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 html,body {
     margin: 0;
@@ -6,44 +7,71 @@ html,body {
     box-sizing: border-box;
     height: 95vh;
     width: 100%;
-    background-image: url('./img/maze-background.jpg');
+    background-color: #141414;
+}
+
+.coll1 {
+    display: inline;
+    position: absolute;
+}
+    .img01 {
+        width: 23%;
+        height: 200px;
+        margin-left: 10px;
+    }
+    .img {
+        width: 16%;
+        height: 145px;
+        margin-left: 10px;
+    }
+    .pac-man {
+        padding: 7% 18%;
+        font-size: 5em;
+        color: rgb(238 255 0);
+        text-shadow: black 10px 5px 5px;
+        font-family: 'Press Start 2P', cursive;
+    }
+    h2 {
+        margin: 0;
+    }
+
+.box {
+    width: 90%;
+    margin: 30px auto;
+}
+    .row {
+        height: 25px;
+        display: flex;
+        justify-content: flex-end;
+    }
+        .cell {
+            width: 3%;
+            border: 1px solid rgba(19, 19, 32, 0);
+        }
+
+.block {
+    background-color: #6874ff;
+    box-shadow: inset 0px -2px 0rem 3px #0000008c;
+}
+
+.divRed{
+    background-image: url("./img/pngwing.com\ \(1\).png");
+    width: 60%;
+    height: 90%;
     background-size: cover;
 }
-.box {
-    width: 80%;
-    margin:20px auto;
-}
-    .box>div {
-        width: 70vw;
-        margin: 0 auto;
-    }
-        .row {
-            height: 40px;
-            display: flex;
-        }
-            .cell {
-                width: 7%;
-                border: 1px solid rgba(19, 19, 32, 0);
-            }
-.block {
-    background-color: #ffffffb6;
-    border: 1px solid purple;
-    box-shadow: 0 0 0.6rem #fffdff, 0 0 0.5rem #ff65bd
-}
-
-.divPlayer {
-    background-color: #ffd8d8;;
+.divBlue{
+    background-image: url("./img/pngwing.com.png");
     width: 60%;
-    height: 70%;
+    height: 100%;
+    background-size: cover;
+}
+.divPlayer {
+    width: 60%;
+    height: 90%;
+    background-image: url(./img/XOsf.gif);
+    background-size: cover;
     border-radius: 100%;
-    box-shadow: .1vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, .2vw 0vw .25vw #ffd8d8, 
-                .1vw 0vw   0vw #f25757, .2vw 0vw   0vw #f25757, .3vw 0vw   0vw #f25757,
-                .1vw 0vw  .1vw #f25757, .2vw 0vw  .1vw #f25757, .2vw 0vw  .1vw #f25757,
-                .1vw 0vw   2vw #8657f2, .2vw 0vw   2vw #8657f2, .2vw 0vw   1vw #8657f2, 
-                .1vw 0vw   1vw #7d1aee, .2vw 0vw   1vw #7d1aee, .2vw 0vw   1vw #7d1aee, 
-                .1vw 0vw   2vw #5515eb, .2vw 0vw   2vw #5515eb, .2vw 0vw   1vw #5515eb,
-                .1vw 0vw   2vw #3e04ac, .2vw 0vw   2vw #3e04ac, .2vw 0vw   1vw #3e04ac;
-
 }
 
 .hidden {
@@ -56,11 +84,12 @@ html,body {
     width: 60vw;
     height: 70vh;
     border-radius: 15px;
-    background-color: rgba(66, 23, 116, 0.705);
+    background-image: url("./img/881338.jpg");
+    background-size: cover;
     top: 90px;
     left: 20vw;
     border: none;
-    box-shadow: #cc81ccd2 0px 2px 30px 8px;
+    box-shadow: #f5dc00 0px 2px 30px 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,7 +97,7 @@ html,body {
 h1 {
     width: 80%;
     margin: 40px auto;
-    font-family: 'Train One', cursive;
+    font-family: 'Press Start 2P', cursive;
     color: #fff;
     font-size: 4.3em;
     text-align: center;
@@ -78,19 +107,11 @@ h1 {
 .btnReset {
     width: 30%;
     height: 10%;
-    border-radius: 10%;
-    border: none;
-    color: rgb(136, 46, 253);
-    box-shadow: 0 0 0.6rem #fffdff, 0 0 0.5rem #ff65bd;
+    margin: 60px;
+    color: rgb(219 247 0);
+    box-shadow: 0 0 0.6rem #ffffff, 0 0 0.5rem #d9ff65;
     font-size: 1.5em;
     font-weight: bolder;
-}
-
-#btnSongs {
-    width: 50px;
-    height: 25px;
-    position: absolute;
-    right: 2%;
-    color:rgb(136, 46, 253);
-
+    background-color: #1917fe;
+    font-family: 'Press Start 2P', cursive;
 }

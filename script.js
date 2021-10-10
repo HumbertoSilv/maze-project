@@ -1,22 +1,31 @@
 let map = [
-    "WWWWWWWWWWWWWWWWWWWWW",
-    "W   W     W     W W W",
-    "W W W WWW WWWWW W W W",
-    "W W W   W     W W   W",
-    "W WWWWWWW W WWW W W W",
-    "W         W     W W W",
-    "W WWW WWWWW WWWWW W W",
-    "W W   W   W W     W W",
-    "W WWWWW W W W WWW W F",
-    "S     W W W W W W WWW",
-    "WWWWW W W W W W W W W",
-    "W     W W W   W W W W",
-    "W WWWWWWW WWWWW W W W",
-    "W       W       W   W",
-    "WWWWWWWWWWWWWWWWWWWWW",
+    "WWWWWWWWWWWWWWWWWWW",
+    "W        W        W",
+    "W WW WWW W WWW WW W",
+    "W WW WWW W WWW WW W",
+    "W                 W",
+    "W WW W WWWWW W WW W",
+    "W    W   W   W    W",
+    "WWWW WW     WW WWWW",
+    "   W W       W W   ",
+    "   W W WWWWW W W   ",
+    "WWWW W W   W W WWWW",
+    "S      W   W      F",
+    "WWWW W W   W W WWWW",
+    "   W W WWWWW W W   ",
+    "   W W       W W   ",
+    "WWWW W WWWWW W WWWW",
+    "W        W        W",
+    "W WW WWW   WWW WW W",
+    "W  W           W  W",
+    "WW W W WWWWW W W WW",
+    "W    W   W   W    W",
+    "W WWWWWW   WWWWWW W",
+    "W                 W",
+    "WWWWWWWWWWWWWWWWWWW",
 ];
 
-let playerPosition = {x:9,y:0 };
+let playerPosition = {x:11,y:0 };
 
 /*********** CREATE MAP***********/ 
 
@@ -55,6 +64,16 @@ document.getElementById('box').appendChild(domMap);
 
 let divPlayer = document.createElement('div');
     divPlayer.classList.add('divPlayer');
+
+let divRed = document.createElement('div');
+    divRed.classList.add('divRed');
+
+document.getElementById("cell-6-11").appendChild(divRed);
+
+let divBlue = document.createElement('div');
+    divBlue.classList.add('divBlue');
+
+document.getElementById("cell-16-6").appendChild(divBlue);
 
 /******** PLAYER POSITION **************/
 
@@ -110,7 +129,7 @@ document.addEventListener('keydown', (event) => {
 /********* VICTORY *********/ 
 
 function hasVictory() {
-  if (playerPosition.x === 8 && playerPosition.y === 20) {
+  if (playerPosition.x === 11 && playerPosition.y === 18) {
     document.getElementById('msg').classList.add('victory');
   }
 }
@@ -119,10 +138,3 @@ function hasVictory() {
 const reloadPage = document.getElementById('btnReset');
 reloadPage.addEventListener('click', () => location.reload());
 
-/********* BUTTON SONG ******************/
-
-const btnSongs = document.getElementById('btnSongs');
-btnSongs.addEventListener('click', () => {
-  const song01 = document.getElementById('song01');
-  song01.muted = !song01.muted;
-})
